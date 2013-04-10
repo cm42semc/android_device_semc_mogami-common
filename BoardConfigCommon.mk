@@ -28,7 +28,10 @@ USES_TI_MAC80211 := true
 COMMON_GLOBAL_CFLAGS += -DUSES_TI_MAC80211
 
 # Bluetooth
+if ($(BOARD_HAVE_BLUETOOTH_BLUEZ),true)
 BOARD_HAVE_BLUETOOTH_CUSTOM_HCIATTACH := true
+endif
+
 TARGET_CUSTOM_BLUEDROID := ../../../device/semc/mogami-common/bluedroid/bluetooth.c
 
 # FM Radio
