@@ -46,6 +46,11 @@ PRODUCT_PACKAGES += \
     FmRxService \
     libfmrx
 
+ifeq ($(BOARD_HAVE_BLUETOOTH_BLUEZ),true)
+PRODUCT_PACKAGES += \
+    javax.btobex
+endif
+
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.softap.interface=wlan0 \
