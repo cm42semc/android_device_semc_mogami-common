@@ -46,7 +46,9 @@ PRODUCT_PACKAGES += \
     FmRxService \
     libfmrx
 
+# Bluetooth BlueZ
 PRODUCT_PACKAGES += \
+    hciattach \
     javax.btobex
 
 PRODUCT_PROPERTY_OVERRIDES += \

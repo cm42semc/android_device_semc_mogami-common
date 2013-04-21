@@ -24,7 +24,6 @@ LOCAL_C_INCLUDES:=\
 LOCAL_SHARED_LIBRARIES := \
 	libbluetoothd libbluetooth
 
-LOCAL_MODULE_TAGS := debug
 LOCAL_MODULE:=hciattach
 
 include $(BUILD_EXECUTABLE)
