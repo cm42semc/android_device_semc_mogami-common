@@ -48,8 +48,17 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth BlueZ
 PRODUCT_PACKAGES += \
+    bluetoothd \
+    hciconfig \
+    hcitool \
     hciattach \
-    javax.btobex
+    javax.btobex \
+    libbluetoothd
+
+# ti wpan
+    uim-sysfs \
+    bt_sco_app \
+    BluetoothSCOApp
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
