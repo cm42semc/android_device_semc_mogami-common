@@ -1,4 +1,5 @@
 ifeq ($(BOARD_HAVE_BLUETOOTH_BLUEZ),true)
+ifeq ($(BOARD_HAVE_BLUETOOTH_CUSTOM_HCIATTACH),true)
 
 LOCAL_PATH:= $(call my-dir)
 #
@@ -28,4 +29,5 @@ LOCAL_MODULE:=hciattach
 
 include $(BUILD_EXECUTABLE)
 
+endif
 endif
