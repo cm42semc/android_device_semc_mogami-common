@@ -56,6 +56,7 @@ PRODUCT_PACKAGES += \
     libbluetoothd
 
 # ti wpan
+PRODUCT_PACKAGES += \
     uim-sysfs \
     bt_sco_app \
     BluetoothSCOApp
