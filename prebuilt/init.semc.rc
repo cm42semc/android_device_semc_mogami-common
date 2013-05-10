@@ -129,20 +129,28 @@ on boot
 
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
-on property:init.svc.bluetoothd=running
-    write /sys/devices/virtual/bluetooth/hci0/link_supervision_timeout 6400
+service dbus /system/bin/dbus-daemon --system --nofork
+    class main
+    socket dbus stream 660 bluetooth bluetooth
+    user bluetooth
+    group bluetooth net_bt_admin
 
-#service hciattach /system/bin/hciattach -n /dev/ttyHS0 texas 3000000
-#    class main
-#    user bluetooth
-#    group qcom_oncrpc bluetooth net_bt_admin
-#    disabled
-#    oneshot
+service bluetoothd /system/bin/bluetoothd -n
+    class main
+    socket bluetooth stream 660 bluetooth bluetooth
+    socket dbus_bluetooth stream 660 bluetooth bluetooth
+    # init.rc does not yet support applying capabilities, so run as root and
+    # let bluetoothd drop uid to bluetooth with the right linux capabilities
+    group bluetooth net_bt_admin misc
+    disabled
 
 service uim /system/bin/uim-sysfs
     class core
     user bluetooth
     group bluetooth net_bt_admin
+
+on property:init.svc.bluetoothd=running
+    write /sys/devices/virtual/bluetooth/hci0/link_supervision_timeout 6400
 
 service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 \
     -puse_p2p_group_interface=1 -c/data/misc/wifi/wpa_supplicant.conf \
@@ -227,17 +235,3 @@ on property:dhcp.wlan0.result=ok
 on property:init.svc.hostapd_bin=stopped
     exec /system/bin/iw dev mon.wlan0 del
 
-service dbus /system/bin/dbus-daemon --system --nofork
-    class main
-    socket dbus stream 660 bluetooth bluetooth
-    user bluetooth
-    group bluetooth net_bt_admin
-
-service bluetoothd /system/bin/bluetoothd -n
-    class main
-    socket bluetooth stream 660 bluetooth bluetooth
-    socket dbus_bluetooth stream 660 bluetooth bluetooth
-    # init.rc does not yet support applying capabilities, so run as root and
-    # let bluetoothd drop uid to bluetooth with the right linux capabilities
-    group bluetooth net_bt_admin misc
-    disabled
