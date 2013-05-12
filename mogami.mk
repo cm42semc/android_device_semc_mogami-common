@@ -52,7 +52,6 @@ PRODUCT_PACKAGES += \
     bluetoothd \
     hciconfig \
     hcitool \
-    hciattach \
     javax.btobex \
     libbluetoothd
 
