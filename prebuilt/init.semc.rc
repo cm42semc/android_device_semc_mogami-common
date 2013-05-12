@@ -35,9 +35,6 @@ on boot
     mkdir /data/radio/log 0775 radio radio
 
 # Bluetooth
-    
-    # Filesystem
-    mkdir /data/misc/bluetoothd 0770 bluetooth bluetooth
 
     # UART device
     chmod 0660 /dev/ttyHS0
@@ -142,15 +139,6 @@ service dbus /system/bin/dbus-daemon --system --nofork
     socket dbus stream 660 bluetooth bluetooth
     user bluetooth
     group bluetooth net_bt_admin
-
-service bluetoothd /system/bin/bluetoothd -n
-    class main
-    socket bluetooth stream 660 bluetooth bluetooth
-    socket dbus_bluetooth stream 660 bluetooth bluetooth
-    # init.rc does not yet support applying capabilities, so run as root and
-    # let bluetoothd drop uid to bluetooth with the right linux capabilities
-    group bluetooth net_bt_admin misc
-    disabled
 
 service uim /system/bin/uim-sysfs
     class core

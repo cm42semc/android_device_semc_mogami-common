@@ -38,28 +38,22 @@ PRODUCT_PACKAGES += \
     hostapd_cli \
     hostapd
 
+# Bluetooth
 PRODUCT_PACKAGES += \
-    Fmapplication \
-    fmapp \
-    libfm_stack \
-    fmreceiverif \
-    com.ti.fm.fmreceiverif.xml \
-    FmRxService \
-    libfmrx
-
-# Bluetooth BlueZ
-PRODUCT_PACKAGES += \
-    bluetoothd \
+    BluetoothSCOApp \
+    bt_sco_app \
     hciconfig \
     hcitool \
-    javax.btobex \
-    libbluetoothd
+    libbt-vendor \
+    uim-sysfs
 
-# ti wpan
+# TI FM app
 PRODUCT_PACKAGES += \
-    uim-sysfs \
-    bt_sco_app \
-    BluetoothSCOApp
+    FmRxApp \
+    FmService \
+    libfmradio \
+    fmradioif \
+    com.ti.fm.fmradioif.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
