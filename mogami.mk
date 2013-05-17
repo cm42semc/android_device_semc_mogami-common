@@ -52,6 +52,7 @@ PRODUCT_PACKAGES += \
     FmRxApp \
     FmService \
     libfmradio \
+    kfmapp \
     fmradioif \
     com.ti.fm.fmradioif.xml
 
