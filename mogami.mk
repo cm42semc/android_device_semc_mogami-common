@@ -15,6 +15,8 @@
 #
 -include device/semc/msm7x30-common/msm7x30.mk
 
+COMMON_PATH := device/semc/mogami-common
+
 $(call inherit-product-if-exists, vendor/semc/mogami-common/mogami-vendor-blobs.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/semc/mogami-common/overlay
@@ -26,12 +28,12 @@ PRODUCT_COPY_FILES += \
 
 # Init file
 PRODUCT_COPY_FILES += \
-    device/semc/mogami-common/prebuilt/init.semc.rc:root/init.semc.rc
+    $(COMMON_PATH)/rootdir/init.semc.rc:root/init.semc.rc
 
 # WiFi config & related files
 PRODUCT_COPY_FILES += \
-    device/semc/mogami-common/prebuilt/hostapd.conf:system/etc/wifi/hostapd.conf \
-    device/semc/mogami-common/prebuilt/wifiload:system/bin/wifiload
+    $(COMMON_PATH)/rootdir/hostapd.conf:system/etc/wifi/hostapd.conf \
+    $(COMMON_PATH)/rootdir/wifiload:system/bin/wifiload
 
 PRODUCT_PACKAGES += \
     wpa_supplicant.conf \
