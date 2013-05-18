@@ -57,11 +57,11 @@ PRODUCT_PACKAGES += \
     libbluetoothd
 
 PRODUCT_COPY_FILES := \
-        system/bluetooth/data/audio.conf:system/etc/bluetooth/audio.conf \
-        system/bluetooth/data/auto_pairing.conf:system/etc/bluetooth/auto_pairing.conf \
-        system/bluetooth/data/blacklist.conf:system/etc/bluetooth/blacklist.conf \
-        system/bluetooth/data/input.conf:system/etc/bluetooth/input.conf \
-        system/bluetooth/data/network.conf:system/etc/bluetooth/network.conf
+    system/bluetooth/data/audio.conf:system/etc/bluetooth/audio.conf \
+    system/bluetooth/data/auto_pairing.conf:system/etc/bluetooth/auto_pairing.conf \
+    system/bluetooth/data/blacklist.conf:system/etc/bluetooth/blacklist.conf \
+    system/bluetooth/data/input.conf:system/etc/bluetooth/input.conf \
+    system/bluetooth/data/network.conf:system/etc/bluetooth/network.conf
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
