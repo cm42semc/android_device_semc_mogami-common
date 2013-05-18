@@ -32,8 +32,8 @@ PRODUCT_COPY_FILES += \
 
 # WiFi config & related files
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/rootdir/hostapd.conf:system/etc/wifi/hostapd.conf \
-    $(COMMON_PATH)/rootdir/wifiload:system/bin/wifiload
+    $(COMMON_PATH)/rootdir/etc/wifi/hostapd.conf:system/etc/wifi/hostapd.conf \
+    $(COMMON_PATH)/rootdir/bin/wifiload:system/bin/wifiload
 
 PRODUCT_PACKAGES += \
     wpa_supplicant.conf \
