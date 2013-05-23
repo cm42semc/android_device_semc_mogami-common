@@ -20,6 +20,7 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
 <resources>
+    <bool name="config_animateScreenLights">false</bool>
 
     <integer name="config_deskDockKeepsScreenOn">0</integer>
     <integer name="config_carDockKeepsScreenOn">1</integer>
@@ -33,7 +34,6 @@
         <!-- The Google Network Location Services location provider -->
         <item>com.google.android.location</item>
     </string-array>
-
 
     <!-- An Array of "[Connection name],[ConnectivityManager.TYPE_xxxx],
          [associated radio-type],[priority],[restoral-timer(ms)],[dependencyMet]  -->
@@ -104,15 +104,6 @@
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
-
-    <!-- Default color for notification LED is white.
-    <color name="config_defaultNotificationColor">#ffffffff</color> -->
-
-    <!-- Default LED on time for notification LED in milliseconds.
-    <integer name="config_defaultNotificationLedOn">1000</integer> -->
-
-    <!-- Default LED off time for notification LED in milliseconds.
-    <integer name="config_defaultNotificationLedOff">2000</integer> -->
 
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveBatteryLed">true</bool>

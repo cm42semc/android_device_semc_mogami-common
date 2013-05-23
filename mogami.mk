@@ -21,6 +21,7 @@ DEVICE_PACKAGE_OVERLAYS += device/semc/mogami-common/overlay
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 # Init file
@@ -37,19 +38,23 @@ PRODUCT_PACKAGES += \
     hostapd_cli \
     hostapd
 
+# Bluetooth
 PRODUCT_PACKAGES += \
-    Fmapplication \
-    fmapp \
-    libfm_stack \
-    fmreceiverif \
-    com.ti.fm.fmreceiverif.xml \
-    FmRxService \
-    libfmrx
+    BluetoothSCOApp \
+    bt_sco_app \
+    hciconfig \
+    hcitool \
+    libbt-vendor \
+    uim-sysfs
 
-# Bluetooth BlueZ
+# TI FM app
 PRODUCT_PACKAGES += \
-    hciattach \
-    javax.btobex
+    FmRxApp \
+    FmService \
+    libfmradio \
+    kfmapp \
+    fmradioif \
+    com.ti.fm.fmradioif.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
