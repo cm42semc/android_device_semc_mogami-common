@@ -15,25 +15,22 @@
 #
 -include device/semc/msm7x30-common/msm7x30.mk
 
-COMMON_PATH := device/semc/mogami-common
-
 $(call inherit-product-if-exists, vendor/semc/mogami-common/mogami-vendor-blobs.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/semc/mogami-common/overlay
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 # Init file
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/rootdir/init.semc.rc:root/init.semc.rc
+    device/semc/mogami-common/prebuilt/init.semc.rc:root/init.semc.rc
 
 # WiFi config & related files
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/rootdir/etc/wifi/hostapd.conf:system/etc/wifi/hostapd.conf \
-    $(COMMON_PATH)/rootdir/bin/wifiload:system/bin/wifiload
+    device/semc/mogami-common/prebuilt/hostapd.conf:system/etc/wifi/hostapd.conf \
+    device/semc/mogami-common/prebuilt/wifiload:system/bin/wifiload
 
 PRODUCT_PACKAGES += \
     wpa_supplicant.conf \
@@ -51,19 +48,8 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth BlueZ
 PRODUCT_PACKAGES += \
-    bluetoothd \
     hciattach \
-    hciconfig \
-    hcitool \
-    javax.btobex \
-    libbluetoothd
-
-PRODUCT_COPY_FILES := \
-    system/bluetooth/data/audio.conf:system/etc/bluetooth/audio.conf \
-    system/bluetooth/data/auto_pairing.conf:system/etc/bluetooth/auto_pairing.conf \
-    system/bluetooth/data/blacklist.conf:system/etc/bluetooth/blacklist.conf \
-    system/bluetooth/data/input.conf:system/etc/bluetooth/input.conf \
-    system/bluetooth/data/network.conf:system/etc/bluetooth/network.conf
+    javax.btobex
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
